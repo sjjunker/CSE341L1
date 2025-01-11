@@ -2,10 +2,8 @@
 let express = require("express");
 let app = express();
 
-//Route
-app.get("/", function (req, res) {
-    res.send("<html><body><h1>Trayton John Gough</h1></body></html>")
-})
+//Use the router for home page
+app.use("/", require("./routes"));
 
 //Server
 app.listen(3000, () => {
