@@ -1,14 +1,30 @@
 //Express module
-let express = require("express");
-let app = express();
-const env = require("dotenv").config();
+const express = require("express");
+const mongoDb = require("./db/connection");
+const bodyParser = require("body-parser");
 
-//Use the router for home page
-app.use("/", require("./routes"));
-
-//Server
+const app = express();
 const port = process.env.PORT;
 
-app.listen(port, () => {
-    console.log(`Running on http://localhost:${port}`);
+//Use the router for home page
+app
+    .use(bodyParser.json())
+    .use((req, res, next) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        next();
+    })
+    .use("/", require("./routes"));
+
+//Start db
+const promise = mongoDb.InitializeDatabase()
+
+//Listen on server
+promise.then(() => {
+    app.listen(port, 
+        () => {
+        console.log(`Database connected and running on port:${port}`);
+    }),
+    (err) => {
+        console.log(err);
+    }
 });
