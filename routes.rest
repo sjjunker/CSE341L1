@@ -1,0 +1,37 @@
+//-----LocalHost-----
+//Home
+###
+GET http://localhost:3000/
+
+//All contacts
+###
+GET http://localhost:3000/contacts/
+
+//Single contacts
+###
+GET http://localhost:3000/contacts/67883cded6e779fca06a3dde
+###
+GET http://localhost:3000/contacts/67883d3bd6e779fca06a3ddf
+###
+GET http://localhost:3000/contacts/67883dd8d6e779fca06a3de0
+###
+GET http://localhost:3000/contacts/67883e3ad6e779fca06a3de1
+###
+GET http://localhost:3000/contacts/67883e8fd6e779fca06a3de2
+
+//-----Render-----
+//All contacts
+###
+GET https://cse341l1.onrender.com/contacts/
+
+//Single contacts
+###
+GET https://cse341l1.onrender.com/contacts/67883cded6e779fca06a3dde
+###
+GET https://cse341l1.onrender.com/contacts/67883d3bd6e779fca06a3ddf
+###
+GET https://cse341l1.onrender.com/contacts/67883dd8d6e779fca06a3de0
+###
+GET https://cse341l1.onrender.com/contacts/67883e3ad6e779fca06a3de1
+###
+GET https://cse341l1.onrender.com/contacts/67883e8fd6e779fca06a3de2
