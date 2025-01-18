@@ -4,7 +4,7 @@ const mongoDb = require("./db/connection");
 const bodyParser = require("body-parser");
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 
 //Use the router for home page
 app
