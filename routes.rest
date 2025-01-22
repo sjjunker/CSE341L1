@@ -19,6 +19,8 @@ GET http://localhost:3000/contacts/67883e3ad6e779fca06a3de1
 ###
 GET http://localhost:3000/contacts/67883e8fd6e779fca06a3de2
 
+//TODO: Create, update, delete
+
 //-----Render-----
 //All contacts
 ###
@@ -35,3 +37,5 @@ GET https://cse341l1.onrender.com/contacts/67883dd8d6e779fca06a3de0
 GET https://cse341l1.onrender.com/contacts/67883e3ad6e779fca06a3de1
 ###
 GET https://cse341l1.onrender.com/contacts/67883e8fd6e779fca06a3de2
+
+//TODO: Create, update, delete
