@@ -19,7 +19,36 @@ GET http://localhost:3000/contacts/67883e3ad6e779fca06a3de1
 ###
 GET http://localhost:3000/contacts/67883e8fd6e779fca06a3de2
 
-//TODO: Create, update, delete
+//Create
+### 
+POST http://localhost:3000/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Tiberius",
+    "lastName":"Ceasar",
+    "email":"tiberius_ceasar@email.com",
+    "favoriteColor":"Red",
+    "birthday":"11/16/1942"
+}
+
+//Update
+### 
+PUT http://localhost:3000/contacts/67883e8fd6e779fca06a3de2 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Kathy",
+    "lastName":"Genaw",
+    "email":"kathy_genaw@email.com",
+    "favoriteColor":"Pink",
+    "birthday": "07/18/1962"
+}
+
+//Delete
+### 
+DELETE http://localhost:3000/contacts/6792d9a99e0c9a80e9ec329d HTTP/1.1
+
 
 //-----Render-----
 //All contacts
@@ -38,4 +67,32 @@ GET https://cse341l1.onrender.com/contacts/67883e3ad6e779fca06a3de1
 ###
 GET https://cse341l1.onrender.com/contacts/67883e8fd6e779fca06a3de2
 
-//TODO: Create, update, delete
+//Create
+### 
+POST https://cse341l1.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Nero",
+    "lastName":"Ceasar",
+    "email":"nero_ceasar@email.com",
+    "favoriteColor":"Blood Red",
+    "birthday":"01/10/100"
+}
+
+//Update
+### 
+PUT https://cse341l1.onrender.com/contacts/67883e8fd6e779fca06a3de2 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Kathy",
+    "lastName":"Genaw",
+    "email":"kathy_genaw@email.com",
+    "favoriteColor":"Orange",
+    "birthday":"07/18/1962"
+}
+
+//Delete
+### 
+DELETE https://cse341l1.onrender.com/contacts/6792da1ce16362e08614b9e8 HTTP/1.1

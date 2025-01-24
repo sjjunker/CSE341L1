@@ -28,7 +28,7 @@ async function CreateContact(req, res) {
 //Update contact
 async function UpdateContact(req, res) {
     //Get the contact id from the url
-    const contactId = new ObjectId(req.body.params);
+    const contactId = new ObjectId(req.params.id);
 
     //Get the contact attributes from the req
     const contact = {
@@ -40,37 +40,45 @@ async function UpdateContact(req, res) {
     };
 
     //Update the contact using the contact id and return a response
-    mongoDb
+    await mongoDb
         .GetDatabase()
         .db("People_I_Know")
         .collection("contacts")
-        .replaceOne({ _id: contactId }, contact)
+        .updateOne({ _id: contactId }, { $set: contact })
         .then((response) => {
             if (response.modifiedCount > 0) {
                 res.status(204).send();
             } else {
-                res.status(500).json(response.error || "Error occurred while updating contact");
+                console.log(response);
+                res.status(500).json(response.error);
             }
+        })
+        .catch(error => {
+          console.log(error);
         });
 }
 
 async function DeleteContact(req, res) {
+  try {
     //Get the contact id from the url
-    const contactId = new ObjectId(req.body.params);
+    const contactId = new ObjectId(req.params.id);
 
     //Delete the contact using the contact id and return a response
-    mongoDb
+    const response = await mongoDb
         .GetDatabase()
         .db("People_I_Know")
         .collection("contacts")
-        .remove({ _id: contactId }, true)
-        .then((response) => {
-            if (response.modifiedCount > 0) {
-                res.status(204).send();
-            } else {
-                res.status(500).json(response.error || "Error occurred while deleting contact");
-            }
-        });
+        .deleteOne({ _id: contactId });
+
+        if (response.deletedCount > 0) {
+            res.status(200).send("Contact deleted");
+        } else {
+            res.status(404).json("Contact not found");
+        }
+  }  catch (error) {
+    console.log(error);
+    res.status(500).json({error: "Error occurred while deleting contact"})
+  }
 }
 
 //Get all the contacts

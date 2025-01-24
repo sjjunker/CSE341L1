@@ -2,9 +2,11 @@
 const express = require("express");
 const mongoDb = require("./db/connection");
 const bodyParser = require("body-parser");
+const env = require("dotenv").config();
+
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 //Use the router for home page
 app.use(bodyParser.json())
@@ -18,11 +20,13 @@ app.use(bodyParser.json())
 const promise = mongoDb.InitializeDatabase();
 
 //Listen on server
-promise.then(() => {
-    app.listen(port, () => {
-        console.log(`Database connected and running on port:${port}`);
-    }),
-        (err) => {
-            console.log(err);
-        };
-});
+promise
+    .then(() => {
+        app.listen(port, () => {
+            console.log(`Database connected and running on port:${port}`);
+        });
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+
