@@ -4,7 +4,6 @@ const mongoDb = require("./db/connection");
 const bodyParser = require("body-parser");
 const env = require("dotenv").config();
 
-
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -12,6 +11,12 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json())
     .use((req, res, next) => {
         res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader(
+            "Access-Controll-Allow-Headers",
+            "Origin, X-Requested-With, Content-Type, Accept, Z-Key"
+        );
+        res.setHeader("Content-Type", "application/json");
+        res.setHeader("Access-Controll-Allow_Methods", "GET, POST, PUT, DELETE, OPTIONS");
         next();
     })
     .use("/", require("./routes"));
@@ -29,4 +34,3 @@ promise
     .catch((err) => {
         console.log(err);
     });
-

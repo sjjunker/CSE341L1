@@ -3,10 +3,7 @@ let express = require("express");
 let router = express.Router();
 
 //Get contacts routes
-router
-    .use("/contacts", require("./contacts"))
-    .use("/api-docs", require("./swagger"));
-
+router.use("/contacts", require("./contacts")).use("/api-docs", require("./swagger"));
 
 //Get controller
 let controller = require("../controllers");
