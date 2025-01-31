@@ -41,13 +41,13 @@ content-type: application/json
     "firstName":"Kathy",
     "lastName":"Genaw",
     "email":"kathy_genaw@email.com",
-    "favoriteColor":"Pink",
+    "favoriteColor":"Purple",
     "birthday": "07/18/1962"
 }
 
 //Delete
 ### 
-DELETE http://localhost:3000/contacts/6792d9a99e0c9a80e9ec329d HTTP/1.1
+DELETE http://localhost:3000/contacts/6792e2c90da6be70e9650835 HTTP/1.1
 
 
 //-----Render-----
@@ -95,4 +95,9 @@ content-type: application/json
 
 //Delete
 ### 
-DELETE https://cse341l1.onrender.com/contacts/6792da1ce16362e08614b9e8 HTTP/1.1
+DELETE https://cse341l1.onrender.com/contacts/6792e3448a337097dd209af8 HTTP/1.1
+
+
+
+//Swagger
+https://cse341l1.onrender.com/api-docs

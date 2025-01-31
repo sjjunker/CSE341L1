@@ -47,7 +47,7 @@ async function UpdateContact(req, res) {
         .updateOne({ _id: contactId }, { $set: contact })
         .then((response) => {
             if (response.modifiedCount > 0) {
-                res.status(204).send();
+                res.status(204).send("Contact updated");
             } else {
                 console.log(response);
                 res.status(500).json(response.error);
