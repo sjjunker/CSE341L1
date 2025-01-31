@@ -5,10 +5,10 @@
     "description": "An API showing my contacts",
     "version": "1.0.0"
   },
-  "host": "https://cse341l1.onrender.com",
+  "host": "cse341l1.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {
